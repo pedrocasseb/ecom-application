@@ -32,6 +32,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
+    @GetMapping("/active")
+    public ResponseEntity<List<ProductResponse>> getActiveProducts() {
+        return ResponseEntity.ok(productService.getAllActiveProducts());
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);

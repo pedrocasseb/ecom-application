@@ -38,6 +38,12 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
+    public List<ProductResponse> getAllActiveProducts() {
+        return productRepository.findByActiveTrue().stream()
+                .map(this::mapToProductResponse)
+                .collect(Collectors.toList());
+    }
+
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
         if(product.getActive() == false) {
