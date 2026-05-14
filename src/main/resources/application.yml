@@ -10,3 +10,26 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+server:
+  shutdown: graceful
+
+info:
+  app:
+    name: EcomApp
+    description: App built for learning
+    version: 1.0.0
